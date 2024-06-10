@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNG">
+    <test name="chapter5">
+        <classes>
+            <class name="org.railway.chaper5.BookTicketFromTimeTableTest"></class>
+        </classes>
+    </test>
+</suite>
