@@ -1,12 +1,46 @@
 package org.railway.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.railway.utils.Action;
+import org.railway.utils.ConfigDriver;
+import org.railway.utils.Driver;
 
-import static org.railway.utils.Driver.driver;
+import java.time.Duration;
 
 public class BasePage {
-    private String tab = "//a[.='%s']";
+    private static String railway;
+    private static String mail;
+    private final String tab = "//a[.='%s']";
+
+    public static void switchToRailway() {
+        Driver.driver.switchTo().window(railway);
+    }
+
+    public static void navigateToMailPage() {
+        String mailUrl = ConfigDriver.getProperty("mail.url");
+        Driver.driver.get(mailUrl);
+        mail = Driver.driver.getWindowHandle();
+    }
+
+    public static void switchToEmail() {
+        Driver.driver.switchTo().window(mail);
+    }
+
+    public static void refreshPage() {
+        Driver.driver.navigate().refresh();
+    }
+
+    public static void switchToNewTab() {
+        Driver.driver.switchTo().newWindow(WindowType.TAB);
+    }
+
+    public static void navigateToRailway() {
+        String railwayUrl = ConfigDriver.getProperty("railway.url");
+        Driver.driver.get(railwayUrl);
+        railway = Driver.driver.getWindowHandle();
+    }
 
     public void clickTab(String tabname) {
         By tabName = By.xpath(String.format(tab, tabname));

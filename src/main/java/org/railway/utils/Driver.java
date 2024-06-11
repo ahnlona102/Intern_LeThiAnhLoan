@@ -10,7 +10,7 @@ public class Driver {
     public static WebDriverWait wait;
 
     public static void initialize(){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
 }
