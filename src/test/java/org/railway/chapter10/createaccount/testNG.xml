@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Create account">
+    <test name="Create account">
+        <classes>
+            <class name="org.railway.chapter10.createaccount.CreateAccountTest"></class>
+        </classes>
+    </test>
+</suite>
