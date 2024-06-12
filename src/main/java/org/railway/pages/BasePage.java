@@ -2,12 +2,9 @@ package org.railway.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.railway.utils.Action;
 import org.railway.utils.ConfigDriver;
 import org.railway.utils.Driver;
-
-import java.time.Duration;
 
 public class BasePage {
     private static String railway;
@@ -45,5 +42,17 @@ public class BasePage {
     public void clickTab(String tabname) {
         By tabName = By.xpath(String.format(tab, tabname));
         Action.click(Action.find(tabName));
+    }
+
+    public boolean checkTab(String nametab){
+        By tabName = By.xpath(String.format(tab, nametab));
+        Action.find(tabName);
+        Action.isElementPresent(tabName);
+        if (Action.isElementPresent(tabName)) {
+            System.out.println(nametab + " is displayed");
+        } else {
+            System.out.println(nametab + " is not displayed");
+        }
+        return false;
     }
 }

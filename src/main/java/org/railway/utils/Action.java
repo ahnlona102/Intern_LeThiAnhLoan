@@ -2,6 +2,7 @@ package org.railway.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -13,6 +14,15 @@ public class Action {
 
     public static WebElement find(By element) {
         return Driver.driver.findElement(element);
+    }
+
+    public static boolean isElementPresent(By element) {
+        try {
+            Driver.wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
     public static String getText(WebElement element) {
@@ -31,6 +41,10 @@ public class Action {
     public static void selectByVisibleText(WebElement element, String text) {
         Select select = new Select(element);
         select.selectByVisibleText(text);
+    }
+
+    public static void clearField(WebElement element){
+        element.clear();
     }
 
     public static void scroll(WebElement element) {
