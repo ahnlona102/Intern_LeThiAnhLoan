@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-06-17T03:23:22 ICT" name="chapter3" finished-at="2024-06-17T03:23:45 ICT" duration-ms="22964">
+    <groups>
+    </groups>
+    <test started-at="2024-06-17T03:23:22 ICT" name="BookTicketTest" finished-at="2024-06-17T03:23:45 ICT" duration-ms="22964">
+      <class name="org.railway.chapter5_8.BookTicketFromTimeTableTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.railway.chapter5_8.BookTicketFromTimeTableTest@248e319b]" started-at="2024-06-17T03:23:22 ICT" name="setUp" finished-at="2024-06-17T03:23:28 ICT" duration-ms="6026" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="BookTicketTest(org.railway.User,java.lang.String,int)[pri:0, instance:org.railway.chapter5_8.BookTicketFromTimeTableTest@248e319b]" started-at="2024-06-17T03:23:28 ICT" name="BookTicketTest" data-provider="bookTicketChapter5_8" finished-at="2024-06-17T03:23:44 ICT" duration-ms="16186" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.railway.User@314c8b4a]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Ticket booked successfully!]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[7]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BookTicketTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.railway.chapter5_8.BookTicketFromTimeTableTest@248e319b]" started-at="2024-06-17T03:23:44 ICT" name="tearDown" finished-at="2024-06-17T03:23:45 ICT" duration-ms="587" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.railway.chapter5_8.BookTicketFromTimeTableTest -->
+    </test> <!-- BookTicketTest -->
+  </suite> <!-- chapter3 -->
+</testng-results>
