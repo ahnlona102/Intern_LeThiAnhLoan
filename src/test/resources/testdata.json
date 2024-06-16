@@ -1,0 +1,32 @@
+{
+  "testData": [
+    {
+      "testChapter3": [
+        {
+          "username": "anhloan189",
+          "domain": "grr.la",
+          "password": "123456789",
+          "confirmpassword": "123456789",
+          "passport": "2984345829",
+          "arrive": "Phan Thiết",
+          "seatType": "Soft seat",
+          "amountTicket": "2"
+        }
+      ],
+      "testChapter5_8":[
+        {
+          "username": "anhloan189",
+          "domain": "grr.la",
+          "password": "123456789",
+          "depart": "Sài Gòn",
+          "arrive": "Đà Nẵng",
+          "seatType": "Soft seat",
+          "amountTicket": "2",
+          "departDate": "6/24/2024",
+          "expectedMessage": "Ticket booked successfully!",
+          "date": 7
+        }
+      ]
+    }
+  ]
+}

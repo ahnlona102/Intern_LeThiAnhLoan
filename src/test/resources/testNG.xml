@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="chapter3">
+    <test name="BookTicketTest">
+        <classes>
+            <class name="railway.chapter5_8.BookTicketFromTimeTableTest"></class>
+        </classes>
+    </test>
+
+</suite>
+
