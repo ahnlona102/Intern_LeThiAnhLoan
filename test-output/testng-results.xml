@@ -2,41 +2,31 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-06-17T03:23:22 ICT" name="chapter3" finished-at="2024-06-17T03:23:45 ICT" duration-ms="22964">
+  <suite started-at="2024-06-19T14:02:57 ICT" name="chapter10" finished-at="2024-06-19T14:03:44 ICT" duration-ms="46806">
     <groups>
     </groups>
-    <test started-at="2024-06-17T03:23:22 ICT" name="BookTicketTest" finished-at="2024-06-17T03:23:45 ICT" duration-ms="22964">
-      <class name="org.railway.chapter5_8.BookTicketFromTimeTableTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:org.railway.chapter5_8.BookTicketFromTimeTableTest@248e319b]" started-at="2024-06-17T03:23:22 ICT" name="setUp" finished-at="2024-06-17T03:23:28 ICT" duration-ms="6026" status="PASS">
+    <test started-at="2024-06-19T14:02:57 ICT" name="LoginTest" finished-at="2024-06-19T14:03:44 ICT" duration-ms="46806">
+      <class name="railway.chapter10.LogOutTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:railway.chapter10.LogOutTest@8f2ef19]" started-at="2024-06-19T14:02:57 ICT" name="setUp" finished-at="2024-06-19T14:03:01 ICT" duration-ms="3687" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="BookTicketTest(org.railway.User,java.lang.String,int)[pri:0, instance:org.railway.chapter5_8.BookTicketFromTimeTableTest@248e319b]" started-at="2024-06-17T03:23:28 ICT" name="BookTicketTest" data-provider="bookTicketChapter5_8" finished-at="2024-06-17T03:23:44 ICT" duration-ms="16186" status="PASS">
+        <test-method signature="Testcase6(org.railway.User)[pri:0, instance:railway.chapter10.LogOutTest@8f2ef19]" started-at="2024-06-19T14:03:01 ICT" name="Testcase6" description="User is redirected to Home page after logging out" data-provider="chapter10Testcase6" finished-at="2024-06-19T14:03:43 ICT" duration-ms="42360" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.railway.User@314c8b4a]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Ticket booked successfully!]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[7]]>
+                <![CDATA[org.railway.User@46c00568]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- BookTicketTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.railway.chapter5_8.BookTicketFromTimeTableTest@248e319b]" started-at="2024-06-17T03:23:44 ICT" name="tearDown" finished-at="2024-06-17T03:23:45 ICT" duration-ms="587" status="PASS">
+        </test-method> <!-- Testcase6 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:railway.chapter10.LogOutTest@8f2ef19]" started-at="2024-06-19T14:03:44 ICT" name="tearDown" finished-at="2024-06-19T14:03:44 ICT" duration-ms="624" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- org.railway.chapter5_8.BookTicketFromTimeTableTest -->
-    </test> <!-- BookTicketTest -->
-  </suite> <!-- chapter3 -->
+      </class> <!-- railway.chapter10.LogOutTest -->
+    </test> <!-- LoginTest -->
+  </suite> <!-- chapter10 -->
 </testng-results>

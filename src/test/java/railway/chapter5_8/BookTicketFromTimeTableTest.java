@@ -3,9 +3,8 @@ package railway.chapter5_8;
 import data.TestDataProvider;
 import org.railway.*;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import railway.BaseTest;
+import railway.*;
 
 public class BookTicketFromTimeTableTest extends BaseTest {
 

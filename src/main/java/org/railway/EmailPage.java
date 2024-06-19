@@ -3,7 +3,6 @@ package org.railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.railway.utils.Action;
-import org.railway.utils.Driver;
 
 public class EmailPage {
 

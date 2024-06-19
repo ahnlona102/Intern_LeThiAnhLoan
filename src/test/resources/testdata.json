@@ -1,32 +1,64 @@
 {
   "testData": [
     {
-      "testChapter3": [
-        {
+      "testChapter3": {
+        "username": "anhloan1011",
+        "domain": "grr.la",
+        "password": "123456789",
+        "confirmpassword": "123456789",
+        "passport": "2984345829",
+        "arrive": "Phan Thiết",
+        "seatType": "Soft seat",
+        "amountTicket": "2"
+      },
+      "testChapter5_8": {
+        "username": "anhloan189",
+        "domain": "grr.la",
+        "password": "123456789",
+        "depart": "Sài Gòn",
+        "arrive": "Đà Nẵng",
+        "seatType": "Soft seat",
+        "amountTicket": "2",
+        "departDate": "6/26/2024",
+        "expectedMessage": "Ticket booked successfully!",
+        "date": 7
+      },
+      "testChapter10": {
+        "testCase1": {
           "username": "anhloan189",
           "domain": "grr.la",
           "password": "123456789",
-          "confirmpassword": "123456789",
-          "passport": "2984345829",
-          "arrive": "Phan Thiết",
-          "seatType": "Soft seat",
-          "amountTicket": "2"
-        }
-      ],
-      "testChapter5_8":[
-        {
+          "expectedMessage": "Welcome anhloan189@grr.la"
+        },
+        "testCase2": {
+          "email": "",
+          "password": "123456789",
+          "errorMessage": "There was a problem with your login and/or errors exist in your form."
+        },
+        "testCase3": {
           "username": "anhloan189",
           "domain": "grr.la",
+          "password": "",
+          "errorMessage": "There was a problem with your login and/or errors exist in your form."
+        },
+        "testCase4": {
+          "username": "anhloan189",
+          "domain": "grr.la",
+          "password": "123",
+          "errorMessage": "Invalid username or password. Please try again.",
+          "attempErrorMessage": "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes."
+        },
+        "testCase5": {
+          "username": "hhhhhhhh",
+          "domain": "grr.la",
           "password": "123456789",
-          "depart": "Sài Gòn",
-          "arrive": "Đà Nẵng",
-          "seatType": "Soft seat",
-          "amountTicket": "2",
-          "departDate": "6/24/2024",
-          "expectedMessage": "Ticket booked successfully!",
-          "date": 7
+          "errorMessage": "Invalid username or password. Please try again."
+        },
+        "testCase6": {
+          "email": "anhloan189@grr.la",
+          "password": "123456789"
         }
-      ]
+      }
     }
   ]
 }

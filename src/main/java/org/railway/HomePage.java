@@ -1,15 +1,17 @@
 package org.railway;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.railway.utils.Action;
 
 public class HomePage extends BasePage{
-    private By welcomeMessage = By.xpath("//strong[normalize-space()='%s']");
+    private By welcomeMessage = By.xpath("//div[@id='banner']//strong");;
 
     public boolean checkWelcomeMessage(String expectedMessage) {
-        By welcomemessage = By.xpath(String.format(welcomeMessage.toString(), expectedMessage));
-        return Action.isDisplayed(welcomeMessage);
+        String actualMessage = Action.getText(welcomeMessage);
+        return actualMessage.equals(expectedMessage);
     }
+
 }
 
 

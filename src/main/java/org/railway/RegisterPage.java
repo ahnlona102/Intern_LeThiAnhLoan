@@ -34,12 +34,12 @@ public class RegisterPage extends BasePage{
 
     public boolean checkPasswordFieldError(String message) {
         By fieldErr = By.xpath(String.format(invalidError, message));
-        return Action.isElementPresent(fieldErr);
+        return Action.isDisplayed(fieldErr);
     }
 
     public boolean checkPassportFieldError(String message) {
         By fieldErr = By.xpath(String.format(invalidError, message));
-        return Action.isElementPresent(fieldErr);
+        return Action.isDisplayed(fieldErr);
     }
 
     public boolean checkMessage(String message) {

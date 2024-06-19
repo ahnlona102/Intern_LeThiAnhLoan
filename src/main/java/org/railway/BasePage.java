@@ -1,9 +1,7 @@
 package org.railway;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.railway.utils.Action;
 import org.railway.utils.ConfigDriver;
 import org.railway.utils.Driver;
@@ -12,9 +10,9 @@ public class BasePage {
 
     private static String railway;
     private static String mail;
-    private String tab = "//a[.='%s']";
-    private String hyperlink = "//a[contains(text(),'%s')]";
-    private String title = "//h1[text()='%s']";
+    private final String tab = "//a[.='%s']";
+    private final String hyperlink = "//a[contains(text(),'%s')]";
+    private final String title = "//h1[text()='%s']";
 
     public static void navigateToRailway() {
         String railwayUrl = ConfigDriver.getProperty("railway.url");
@@ -65,13 +63,12 @@ public class BasePage {
     }
 
     public boolean checkTab(String nametab) {
-        By tabName = By.xpath(String.format(tab, nametab));
-        boolean isPresent = Action.isElementPresent(tabName);
-        if (isPresent) {
-            System.out.println(nametab + " is displayed");
-        } else {
-            System.out.println(nametab + " is not displayed");
-        }
-        return isPresent;
+        return Action.find(By.linkText(nametab)).isDisplayed();
+    }
+
+    public boolean checkDisappear(String tabName) {
+        Action.getWait(20);
+        boolean disappear = Action.isDisappear(By.linkText(tabName));
+        return disappear;
     }
 }

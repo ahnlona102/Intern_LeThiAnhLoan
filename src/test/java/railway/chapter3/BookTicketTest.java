@@ -3,7 +3,7 @@ package railway.chapter3;
 import data.TestDataProvider;
 import org.railway.*;
 import org.testng.annotations.Test;
-import railway.BaseTest;
+import railway.*;
 
 public class BookTicketTest extends BaseTest {
 
