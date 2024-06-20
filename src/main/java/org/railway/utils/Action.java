@@ -26,18 +26,35 @@ public class Action {
     public static boolean isDisplayed(By element) {
         try {
             WebElement elements = find(element);
-            Driver.wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+            waitForElementVisibility(element);
             return elements.isDisplayed();
         } catch (NoSuchElementException | TimeoutException e) {
             return false;
         }
     }
 
+    public static void waitForElementVisibility(By element) {
+        Driver.wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
+
+    public static void waitForElementVisibilityOf(WebElement element) {
+        Driver.wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static WebElement waiForElementClickable(By element) {
+        WebElement webElement = Driver.wait.until(ExpectedConditions.elementToBeClickable(element));
+        return webElement;
+    }
+
+    public static void waiForElementInvisibility(By element) {
+        Driver.wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
+    }
+
     public static String getText(By element) {
         return Driver.driver.findElement(element).getText();
     }
 
-    public static void sendKeys(By element, String text) {
+    public static void enter(By element, String text) {
         WebElement webElement = Driver.driver.findElement(element);
         scroll(element);
         webElement.clear();
@@ -51,9 +68,9 @@ public class Action {
     }
 
     public static void selectByVisibleText(By element, String text) {
-        WebDriverWait wait = new WebDriverWait(Driver.driver, Duration.ofSeconds(20)); // Increased timeout
+        getWait(20);
         WebElement webElement = Driver.driver.findElement(element);
-        wait.until(ExpectedConditions.visibilityOf(webElement));
+        waitForElementVisibilityOf(webElement);
         Select select = new Select(webElement);
         select.selectByVisibleText(text);
     }
@@ -68,20 +85,22 @@ public class Action {
     }
 
     public static WebElement clickIfClickable(By element) {
-        WebDriverWait wait = new WebDriverWait(Driver.driver, Duration.ofSeconds(30));
-        Driver.wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-        WebElement webElement = wait.until(ExpectedConditions.elementToBeClickable(element));
-        webElement.click();
-        return webElement;
+        getWait(30);
+        waitForElementVisibility(element);
+        waiForElementClickable(element).click();
+        return waiForElementClickable(element);
     }
-
-    public static boolean isDisappear(By element){
+    public static boolean isDisappear(By element) {
         try {
-            Driver.wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
+            waiForElementInvisibility(element);
             return true;
         } catch (NoSuchElementException | TimeoutException e) {
             return false;
         }
+    }
+    public static void acceptAlert() {
+        Alert alert = Driver.driver.switchTo().alert();
+        alert.accept();
     }
 
 }

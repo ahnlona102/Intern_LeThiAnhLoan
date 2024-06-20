@@ -1,7 +1,10 @@
 package railway.chapter5_8;
 
 import data.TestDataProvider;
-import org.railway.*;
+import org.railway.enums.BookTicket;
+import org.railway.enums.RailwayTab;
+import org.railway.models.User;
+import org.railway.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import railway.*;
@@ -20,19 +23,19 @@ public class BookTicketFromTimeTableTest extends BaseTest {
     public void BookTicketTest(User user, String expectedMessage, int date) {
         basePage.switchToNewTab();
         basePage.navigateToRailway();
-        homePage.clickTab("Login");
+        homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
-        homePage.clickTab("Timetable");
+        homePage.clickTab(RailwayTab.TIMETABLE);
         timetablePage.checkPrice(user);
         ticketPricePage.selectSeatType(user);
         bookTicketPage.selectDepartdate(date);
-        bookTicketPage.select("TicketAmount", user.getAmountTicket());
+        bookTicketPage.select(BookTicket.AMOUNTTICKET, user.getAmountTicket());
         bookTicketPage.bookTicketButton();
-        Assert.assertTrue(bookTicketSuccessPage.checkSuccessMessage(expectedMessage), "Success message is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.checkInformation(user.getDepart()), "Depart information is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.checkInformation(user.getArrive()), "Arrive information is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.checkInformation(user.getSeatType()), "Seat type information is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.checkInformation(user.getDepartDate()), "Depart date information is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.checkInformation(user.getAmountTicket()), "Amount ticket information is not displayed correctly");
+        Assert.assertTrue(bookTicketSuccessPage.isSuccessMessageDisplayed(expectedMessage), "Success message is not displayed correctly");
+        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getDepart()), "Depart information is not displayed correctly");
+        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getArrive()), "Arrive information is not displayed correctly");
+        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getSeatType()), "Seat type information is not displayed correctly");
+        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getDepartDate()), "Depart date information is not displayed correctly");
+        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getAmountTicket()), "Amount ticket information is not displayed correctly");
     }
 }

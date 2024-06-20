@@ -11,7 +11,7 @@ Driver info: org.openqa.selenium.chrome.ChromeDriver
 Command: [68b823a491a15b5a7d12ae94e1c5d7d2, getCurrentWindowHandle {}]
 Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 125.0.6422.142, chrome: {chromedriverVersion: 125.0.6422.141 (4b1e8393712..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57725}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57725/devtoo..., se:cdpVersion: 125.0.6422.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
 Session ID: 68b823a491a15b5a7d12ae94e1c5d7d2">
-      <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+        <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
 from unknown error: web view not found
   (Session info: chrome=125.0.6422.142)
 Build info: version: '4.21.0', revision: '79ed462ef4'
@@ -30,7 +30,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
 at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandle(RemoteWebDriver.java:455)
-at org.railway.BasePage.navigateToMailPage(BasePage.java:32)
+at org.railway.pages.BasePage.navigateToMailPage(BasePage.java:32)
 at railway.chapter3.BookTicketTest.BookTicketTest(BookTicketTest.java:19)
 at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
 at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)

@@ -1,7 +1,11 @@
 package railway.chapter3;
 
 import data.TestDataProvider;
-import org.railway.*;
+import org.railway.enums.BookTicket;
+import org.railway.enums.ConfirmEmail;
+import org.railway.enums.RailwayTab;
+import org.railway.models.User;
+import org.railway.pages.*;
 import org.testng.annotations.Test;
 import railway.*;
 
@@ -20,20 +24,20 @@ public class BookTicketTest extends BaseTest {
             mailPage.getEmail(user);
             basePage.switchToNewTab();
             basePage.navigateToRailway();
-            homePage.clickTab("Register");
+            homePage.clickTab(RailwayTab.REGISTER);
             registerPage.registerAccount(user);
             basePage.switchToEmail();
             basePage.refreshPage();
-            mailPage.confirmEmail("Please confirm");
+            mailPage.confirmEmail(ConfirmEmail.CONFIRM);
             basePage.switchToNewTab();
             basePage.navigateToRailway();
-            homePage.clickTab("Login");
+            homePage.clickTab(RailwayTab.LOGIN);
             loginPage.login(user);
-            homePage.clickTab("Book ticket");
-            bookTicketPage.select("ArriveStation", user.getArrive());
+            homePage.clickTab(RailwayTab.BOOKTICKET);
+            bookTicketPage.select(BookTicket.ARRIVESTATION, user.getArrive());
             bookTicketPage.selectDepartdate(3);
-            bookTicketPage.select("SeatType", user.getSeatType());
-            bookTicketPage.select("TicketAmount", user.getAmountTicket());
+            bookTicketPage.select(BookTicket.SEATTYPE, user.getSeatType());
+            bookTicketPage.select(BookTicket.AMOUNTTICKET, user.getAmountTicket());
             bookTicketPage.bookTicketButton();
         }
     }

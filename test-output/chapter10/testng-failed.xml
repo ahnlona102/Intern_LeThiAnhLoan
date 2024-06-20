@@ -3,13 +3,13 @@
 <suite name="Failed suite [chapter10]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="LoginTest(failed)" verbose="0">
     <classes>
-      <class name="railway.chapter10.LogOutTest">
+      <class name="railway.chapter10.CancelTicketTest">
         <methods>
-          <include name="Testcase6" invocation-numbers="0"/>
+          <include name="Testcase16" invocation-numbers="0"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- railway.chapter10.LogOutTest -->
+      </class> <!-- railway.chapter10.CancelTicketTest -->
     </classes>
   </test> <!-- LoginTest(failed) -->
 </suite> <!-- Failed suite [chapter10] -->

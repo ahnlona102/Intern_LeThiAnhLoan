@@ -2,7 +2,7 @@
   "testData": [
     {
       "testChapter3": {
-        "username": "anhloan1011",
+        "username": "anhloan111111",
         "domain": "grr.la",
         "password": "123456789",
         "confirmpassword": "123456789",
@@ -57,6 +57,112 @@
         "testCase6": {
           "email": "anhloan189@grr.la",
           "password": "123456789"
+        },
+        "testCase7": {
+          "email": "anhloan189@grr.la",
+          "password": "123456789",
+          "confirmPassword": "123456789",
+          "passport": "123456789999",
+          "errorMessage": "This email address is already in use."
+        },
+        "testCase8": {
+          "username": "anhloan5555",
+          "domain": "grr.la",
+          "password": "",
+          "confirmPassword": "123456789",
+          "passport": "",
+          "errorMessage": "There're errors in the form. Please correct the errors and try again.",
+          "passwordFieldErr": "Invalid password length.",
+          "passportFieldErr": "Invalid ID length."
+        },
+        "testCase9": {
+          "username": "anhloan91111",
+          "domain": "grr.la",
+          "password": "123456789",
+          "confirmPassword": "123456789",
+          "passport": "965798986654",
+          "titleThanks": "Thank you for registering your account",
+          "successMessage": "Registration Confirmed! You can now log in to the site."
+        },
+        "testCase10": {
+          "username": "anhloan189",
+          "domain": "grr.la",
+          "password": "123456789",
+          "confirmPassword": "123456789",
+          "titleForm": "Password Change Form",
+          "errorMessage": "The new password cannot be the same with the current password."
+        },
+        "testCase11": {
+          "username": "anhloan189",
+          "domain": "grr.la",
+          "password": "123456789",
+          "confirmPassword": "12345678",
+          "titleForm": "Password Change Form",
+          "errorMess": "Could not reset password. Please correct the errors and try again.",
+          "errorMessage": "The password confirmation did not match the new password."
+        },
+        "testCase12": {
+          "username": "anhloan111111",
+          "domain": "grr.la",
+          "password": "123456789",
+          "confirmpassword": "123456789",
+          "date": "12",
+          "depart": "Nha Trang",
+          "arrive": "Huế",
+          "seatType": "Soft bed with air conditioner",
+          "amountTicket": "1",
+          "departDate": "6/26/2024",
+          "expectedMessage": "Ticket booked successfully!"
+        },
+        "testCase13": {
+          "username": "anhloan1891",
+          "domain": "grr.la",
+          "password": "123456789",
+          "confirmpassword": "123456789",
+          "date": "25",
+          "depart": "Nha Trang",
+          "arrive": "Sài Gòn",
+          "seatType": "Soft seat with air conditioner",
+          "amountTicket": "5",
+          "departDate": "7/2/2024",
+          "expectedMessage": "Ticket booked successfully!"
+        },
+        "testCase14": {
+          "username": "anhloan189",
+          "domain": "grr.la",
+          "password": "123456789",
+          "title": "Ticket Price",
+          "date": "25",
+          "depart": "Đà Nẵng",
+          "arrive": "Sài Gòn",
+          "expectedMessage": "Ticket price from Đà Nẵng to Sài Gòn",
+          "HS": 310000,
+          "SS": 335000,
+          "SSC": 360000,
+          "HB": 410000,
+          "SB": 460000,
+          "SBC": 510000
+        },
+        "testCase15": {
+          "username": "anhloan1891",
+          "domain": "grr.la",
+          "password": "123456789",
+          "depart": "Quảng Ngãi",
+          "arrive": "Huế",
+          "date": 10,
+          "seatType": "Soft seat with air conditioner",
+          "amountTicket": "5",
+          "departDate": "6/30/2024",
+          "expectedMessage": "Ticket booked successfully!"
+        },
+        "testCase16": {
+          "email": "abc123@sharklasers.com",
+          "password": "123456789",
+          "depart": "Nha Trang",
+          "arrive": "Huế",
+          "departDate": "6/30/2024",
+          "seatType": "Soft seat with air conditioner",
+          "amountTicket": "1"
         }
       }
     }
