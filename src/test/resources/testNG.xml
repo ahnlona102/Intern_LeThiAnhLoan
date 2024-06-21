@@ -2,8 +2,7 @@
 <suite name="chapter10" >
     <test name="LoginTest">
         <classes>
-            <class name="railway.chapter10.LogOutTest">
-            </class>
+            <class name="railway.chapter10.CancelTicketTest"></class>
         </classes>
     </test>
 </suite>

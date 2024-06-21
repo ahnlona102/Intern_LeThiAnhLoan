@@ -1,7 +1,9 @@
-package org.railway;
+package org.railway.pages;
 
 import org.openqa.selenium.By;
+import org.railway.enums.BookTicket;
 import org.railway.utils.Action;
+import org.railway.utils.DateUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,25 +12,21 @@ import java.util.Date;
 public class BookTicketPage extends BasePage{
 
     private String dateDate = "//select[@name='Date']//option[text()='%s']";
-    private By bookTicketbutton = By.xpath("//input[@value='Book ticket']");
+    private By bookTicketbutton = By.xpath("//legend[text()='Book ticket form']/following-sibling::input");
     //private By bookTicketTable = By.xpath("//table[@class='MyTable WideTable']");
     private String selectOption = "//select[@name='%s']";
 
 
     public void selectDepartdate(int date){
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_YEAR, date);
-        Date afterDate = calendar.getTime();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
-        String formatdate = dateFormat.format(afterDate);
-        By selectDate = By.xpath(String.format(dateDate, formatdate));
+        String formattedDate = DateUtils.getFormattedDate(date);
+        By selectDate = By.xpath(String.format(dateDate, formattedDate));
         Action.find(selectDate).click();
     }
 
-    public void select(String optionName, String value) {
-        By option = By.xpath(String.format(selectOption, optionName));
+    public void select(BookTicket optionName, String value) {
+        By option = By.xpath(String.format(selectOption, optionName.getValue()));
         Action.scroll(option);
-        Action.clickIfClickable(option);
+        Action.click(option);
         try {
             int intValue = Integer.parseInt(value);
             if (intValue >= 1 && intValue <= 10) {
@@ -43,6 +41,6 @@ public class BookTicketPage extends BasePage{
 
     public void bookTicketButton() {
         Action.scroll(bookTicketbutton);
-        Action.clickIfClickable(bookTicketbutton);
+        Action.click(bookTicketbutton);
     }
 }

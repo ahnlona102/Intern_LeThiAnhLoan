@@ -1,4 +1,4 @@
-package org.railway;
+package org.railway.models;
 
 public class User {
     private String username;

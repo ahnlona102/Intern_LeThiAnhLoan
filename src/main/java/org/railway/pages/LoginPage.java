@@ -1,14 +1,16 @@
-package org.railway;
+package org.railway.pages;
 
 import org.openqa.selenium.By;
+import org.railway.models.User;
 import org.railway.utils.Action;
 
 public class LoginPage extends BasePage {
 
-    private final By emailtxtbox = By.id("username");
-    private final By passwordtxtbox = By.id("password");
+    private final By emailtxtboxLocator = By.id("username");
+    private final By passwordtxtboxLocator = By.id("password");
     private final By loginbtn = By.xpath("//input[@value='login']");
     private final By loginErr = By.xpath("//p[contains(@class,'message error')]");
+    private String titleForm = "//legend[contains(text(),'%s')]";
 
     public void login(User user) {
         enterEmail(user);
@@ -22,12 +24,13 @@ public class LoginPage extends BasePage {
         }
     }
 
+
     public void enterEmail(User user) {
-        Action.sendKeys(emailtxtbox, user.getEmail());
+        Action.enter(emailtxtboxLocator, user.getEmail());
     }
 
     public void enterPassword(User user) {
-        Action.sendKeys(passwordtxtbox, user.getPassword());
+        Action.enter(passwordtxtboxLocator, user.getPassword());
     }
 
     public void clickLoginButton() {
@@ -35,7 +38,12 @@ public class LoginPage extends BasePage {
         Action.click(loginbtn);
     }
 
-    public boolean checkLoginErr(String expectedMessage) {
+//    public void checkTitleForm(String title) {
+//        By form = By.xpath(String.format(titleForm, title));
+//        Action.isDisplayed(form);
+//    }
+
+    public boolean isLoginErrorMessageDisplayed(String expectedMessage) {
         String actualMessage = Action.getText(loginErr);
         return actualMessage.equals(expectedMessage);
     }

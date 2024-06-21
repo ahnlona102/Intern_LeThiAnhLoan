@@ -3,7 +3,7 @@ package data;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.railway.User;
+import org.railway.models.User;
 import org.testng.annotations.DataProvider;
 
 import java.io.InputStream;
@@ -115,7 +115,187 @@ public class TestDataProvider {
         return new Object[][]{{user}};
     }
 
+    @DataProvider(name = "chapter10Testcase7")
+    public Object[][] getLoginChapter10Testcase7() {
+        return getTestData("testChapter10","testCase7");
+    }
 
+    @DataProvider(name = "chapter10Testcase8")
+    public Object[][] getLoginChapter10Testcase8() {
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase8";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        user.setConfirmPassword(testCaseData.optString("confirmPassword", ""));
+        user.setPassport(testCaseData.optString("passport"));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        String errorMessage = testCaseData.optString("errorMessage", "");
+        String passwordFieldError = testCaseData.optString("passwordFieldErr", "");
+        String passportFieldError = testCaseData.optString("passportFieldErr", "");
+
+        return new Object[][]{{user, errorMessage, passwordFieldError, passportFieldError}};
+    }
+
+    @DataProvider(name = "chapter10Testcase9")
+    public Object[][] getLoginChapter10Testcase9() {
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase9";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        user.setConfirmPassword(testCaseData.optString("confirmPassword", ""));
+        user.setPassport(testCaseData.optString("passport"));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        String title = testCaseData.optString("titleThanks", "");
+        String successMessage = testCaseData.optString("successMessage", "");
+
+        return new Object[][]{{user, title, successMessage}};
+    }
+
+    @DataProvider(name = "chapter10Testcase10")
+    public Object[][] getLoginChapter10Testcase10() {
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase10";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        user.setConfirmPassword(testCaseData.optString("confirmPassword", ""));
+        user.setPassport(testCaseData.optString("passport"));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        String title = testCaseData.optString("titleForm", "");
+        String errorMessage = testCaseData.optString("errorMessage", "");
+
+        return new Object[][]{{user, title, errorMessage}};
+    }
+
+    @DataProvider(name = "chapter10Testcase11")
+    public Object[][] getLoginChapter10Testcase11() {
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase11";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        user.setConfirmPassword(testCaseData.optString("confirmPassword", ""));
+        user.setPassport(testCaseData.optString("passport"));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        String title = testCaseData.optString("titleForm", "");
+        String errorMess = testCaseData.optString("errorMess");
+        String errorMessage = testCaseData.optString("errorMessage", "");
+
+        return new Object[][]{{user, title, errorMess, errorMessage}};
+    }
+    @DataProvider(name = "chapter10Testcase14")
+    public Object[][] getLoginChapter10Testcase14() {
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase14";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        user.setDepart(testCaseData.optString("depart", ""));
+        user.setArrive(testCaseData.optString("arrive", ""));
+        user.setSeatType(testCaseData.optString("seatType", ""));
+        user.setAmountTicket(testCaseData.optString("amountTicket", ""));
+        user.setDepartDate(testCaseData.optString("departDate", ""));
+
+        String HS = testCaseData.optString("HS", "");
+        String SS = testCaseData.optString("SS");
+        String SB = testCaseData.optString("SB", "");
+        String SBC = testCaseData.optString("SB", "");
+
+        return new Object[][]{{user,HS, SS, SB, SBC}};
+    }
+    @DataProvider(name = "chapter10Testcase12")
+    public Object[][] getLoginChapter10Testcase12() {
+        return  getTestData("testChapter10", "testCase12");
+    }
+    @DataProvider(name = "chapter10Testcase13")
+    public Object[][] getLoginChapter10Testcase13() {
+        return getTestData("testChapter10","testCase13");
+    }
+
+    @DataProvider(name = "chapter10Testcase15")
+    public Object[][] getLoginChapter10Testcase15() {
+        return getTestData("testChapter10","testCase15");
+    }
+
+    @DataProvider(name = "chapter10Testcase16")
+    public Object[][] getLoginChapter10Testcase16() {
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase16";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        user.setDepart(testCaseData.optString("depart", ""));
+        user.setArrive(testCaseData.optString("arrive", ""));
+        user.setSeatType(testCaseData.optString("seatType", ""));
+        user.setAmountTicket(testCaseData.optString("amountTicket", ""));
+        user.setDepartDate(testCaseData.optString("departDate", ""));
+
+        return new Object[][]{{user}};
+    }
 
     private Object[][] getTestData(String chapterKey) {
         JSONArray testData = loadTestData();
@@ -132,6 +312,8 @@ public class TestDataProvider {
         user.setUsername(testCaseData.optString("username", ""));
         user.setDomain(testCaseData.optString("domain", ""));
         user.setPassword(testCaseData.optString("password", ""));
+        user.setConfirmPassword(testCaseData.optString("confirmPassword", ""));
+        user.setPassport(testCaseData.optString("passport"));
         if (testCaseData.has("email")) {
             user.setEmail(testCaseData.optString("email", ""));
         } else {

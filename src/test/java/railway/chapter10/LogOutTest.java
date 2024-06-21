@@ -1,11 +1,11 @@
 package railway.chapter10;
 
 import data.TestDataProvider;
-import org.railway.BasePage;
-import org.railway.HomePage;
-import org.railway.LoginPage;
-import org.railway.User;
-import org.testng.annotations.DataProvider;
+import org.railway.enums.RailwayTab;
+import org.railway.pages.BasePage;
+import org.railway.pages.HomePage;
+import org.railway.pages.LoginPage;
+import org.railway.models.User;
 import org.testng.annotations.Test;
 import railway.BaseTest;
 
@@ -17,12 +17,12 @@ public class LogOutTest extends BaseTest {
     @Test(dataProvider = "chapter10Testcase6", dataProviderClass = TestDataProvider.class, description = "User is redirected to Home page after logging out")
     public void Testcase6(User user){
         basePage.navigateToRailway();
-        homePage.clickTab("Login");
+        homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
-        homePage.clickTab("FAQ");
-        homePage.clickTab("Log out");
-        basePage.checkTab("Home");
-        homePage.checkDisappear("Log out");
+        homePage.clickTab(RailwayTab.FAQ);
+        homePage.clickTab(RailwayTab.LOGOUT);
+        basePage.isTabDisplayed(RailwayTab.HOME);
+        homePage.doesTabExist(RailwayTab.LOGOUT);
     }
 
 }

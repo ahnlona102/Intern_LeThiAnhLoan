@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class ConfigDriver {
+public class ConfigLoader {
     protected static Properties properties;
 
     static {
@@ -13,7 +13,7 @@ public class ConfigDriver {
 
     private static void loadProperties() {
         properties = new Properties();
-        try (InputStream input = ConfigDriver.class.getClassLoader().getResourceAsStream("config.properties")) {
+        try (InputStream input = ConfigLoader.class.getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {
                 throw new IOException("config.properties file not found.");
             }
