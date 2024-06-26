@@ -1,0 +1,17 @@
+{
+  "host": "192.168.60.22",
+  "port": 4444,
+  "role": "hub",
+  "maxSession": 10,
+  "timeout": 30000,
+  "newSessionWaitTimeout": -1,
+  "servlets": [],
+  "prioritizer": null,
+  "capabilityMatcher": "org.openqa.grid.internal.utils.DefaultCapabilityMatcher",
+  "throwOnCapabilityNotPresent": true,
+  "nodePolling": 5000,
+  "cleanUpCycle": 5000,
+  "browserTimeout": 0,
+  "debug": false,
+  "jettyMaxThreads": -1
+}

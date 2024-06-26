@@ -2,7 +2,7 @@
   "testData": [
     {
       "testChapter3": {
-        "username": "hahaha12",
+        "username": "hahaha16",
         "domain": "grr.la",
         "password": "123456789",
         "confirmPassword": "123456789",
@@ -12,14 +12,14 @@
         "amountTicket": "2"
       },
       "testChapter5_8": {
-        "username": "hahaha11",
+        "username": "hahaha13",
         "domain": "grr.la",
         "password": "123456789",
         "depart": "Sài Gòn",
         "arrive": "Đà Nẵng",
         "seatType": "Soft seat",
         "amountTicket": "2",
-        "departDate": "7/1/2024",
+        "departDate": "7/3/2024",
         "expectedMessage": "Ticket booked successfully!",
         "date": 7
       },

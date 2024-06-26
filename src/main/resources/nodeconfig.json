@@ -1,0 +1,31 @@
+{
+  "capabilities": [
+    {
+      "browserName": "firefox",
+      "maxInstances": 5,
+      "seleniumProtocol": "WebDriver"
+    },
+    {
+      "browserName": "chrome",
+      "maxInstances": 5,
+      "seleniumProtocol": "WebDriver"
+    }
+  ],
+  "configuration": {
+    "cleanUpCycle": 2000,
+    "timeout": 30000,
+    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "maxSession": 10,
+    "register": true,
+    "registerCycle": 5000,
+    "hubPort": 4444,
+    "hubHost": "192.168.60.22",
+    "nodeStatusCheckTimeout": 5000,
+    "downPollingLimit": 2,
+    "role": "node",
+    "debug": false,
+    "servlets": [],
+    "withoutServlets": [],
+    "custom": {}
+  }
+}

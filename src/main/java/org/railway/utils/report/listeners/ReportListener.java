@@ -11,6 +11,8 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.railway.utils.report.helpers.CaptureHelpers;
 
+import java.net.MalformedURLException;
+
 import static org.railway.utils.report.extentreports.ExtentManager.getExtentReports;
 
 public class ReportListener implements ITestListener {
@@ -27,7 +29,11 @@ public class ReportListener implements ITestListener {
     @Override
     public void onStart(ITestContext iTestContext) {
         String browser = System.getProperty("browser", ConfigLoader.getProperty("browser"));
-        Driver.setupDriver(browser);
+        try{
+            Driver.setupDriver(browser);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         Log.info("Start testing " + iTestContext.getName());
         iTestContext.setAttribute("WebDriver", Driver.driver);
         try {
