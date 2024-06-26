@@ -12,9 +12,9 @@ public class TicketPricePage extends BasePage{
 
     public void selectSeatType(User user) {
         By seattype = By.xpath(String.format(seatTypeLocator, user.getSeatType()));
+        Action.scroll(seattype);
         Action.click(seattype);
     }
-
 
     public String getHeaderOfSeatPriceTable() {
         return Action.getText(ticketPriceTableHeader);

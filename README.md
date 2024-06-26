@@ -5,3 +5,6 @@ This project is a Selenium automation framework using Java for testing the Railw
 - IntelliJ IDEA
 - Maven
 - Git
+
+## Run on Firefox or different browsers
+- Command line: mvn test -Dbrowser=firefox (or different browsers)

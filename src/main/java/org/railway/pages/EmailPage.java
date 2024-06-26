@@ -59,12 +59,11 @@ public class EmailPage {
         Action.getWait(20);
         By mess = By.xpath(String.format(confirmMess, text.getValue()));
         Action.click(mess);
-        Action.getWait(20);
     }
 
+
     public void clickConfirmLink() {
-        Action.getWait(20);
-        Action.scroll(confirmLinkLocator);
+        Action.getWait(50);
         Action.clickIfClickable(confirmLinkLocator);
     }
 
@@ -74,12 +73,13 @@ public class EmailPage {
     }
 
     public String getResetPasswordToken() {
-        WebElement mailContentElement = Action.find(mailContent);
-        String[] parts = mailContentElement.getText().split("The token is: ");
+        String[] parts = Action.getText(mailContent).split("The token is: ");
         if (parts.length > 1) {
-            String[] tokenParts = parts[1].split("\\.");
-            return tokenParts[0].trim();
+            String tokenPart = parts[1].trim();
+            String[] tokenParts = tokenPart.split("\\s+");
+            return tokenParts[0];
         }
         return "";
     }
+
 }

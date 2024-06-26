@@ -25,9 +25,9 @@ public class Action {
 
     public static boolean isDisplayed(By element) {
         try {
-            WebElement elements = find(element);
+            Driver.driver.findElement(element);
             waitForElementVisibility(element);
-            return elements.isDisplayed();
+            return true;
         } catch (NoSuchElementException | TimeoutException e) {
             return false;
         }
@@ -50,6 +50,10 @@ public class Action {
         Driver.wait.until(ExpectedConditions.invisibilityOfElementLocated(element));
     }
 
+    public static void waitForElementPresent(By element) {
+        Driver.wait.until(ExpectedConditions.presenceOfElementLocated(element));
+    }
+
     public static String getText(By element) {
         return Driver.driver.findElement(element).getText();
     }
@@ -57,7 +61,6 @@ public class Action {
     public static void enter(By element, String text) {
         WebElement webElement = Driver.driver.findElement(element);
         scroll(element);
-        webElement.clear();
         webElement.sendKeys(text);
     }
 

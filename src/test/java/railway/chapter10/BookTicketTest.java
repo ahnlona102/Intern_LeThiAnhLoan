@@ -20,43 +20,35 @@ public class BookTicketTest extends BaseTest {
     TimetablePage timetablePage = new TimetablePage();
 
     @Test(dataProvider = "chapter10Testcase12", dataProviderClass = TestDataProvider.class, description = "User can book 1 ticket at a time")
-    public void Testcase12(User user, int date, String expectedMessage){
+    public void Testcase12(User user, String expectedMessage){
         basePage.navigateToRailway();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
         homePage.clickTab(RailwayTab.BOOKTICKET);
-        bookTicketPage.selectDepartdate(date);
+        bookTicketPage.selectDepartdate(user.getDate());
         bookTicketPage.select(BookTicket.DEPARTSTATION, user.getDepart());
-        bookTicketPage.select(BookTicket.ARRIVESTATION, user.getArrive());
         bookTicketPage.select(BookTicket.AMOUNTTICKET, user.getAmountTicket());
         bookTicketPage.select(BookTicket.SEATTYPE, user.getSeatType());
+        bookTicketPage.select(BookTicket.ARRIVESTATION, user.getArrive());
         bookTicketPage.bookTicketButton();
         bookTicketSuccessPage.isSuccessMessageDisplayed(expectedMessage);
-        bookTicketSuccessPage.isInformationDisplayed(user.getDepart());
-        bookTicketSuccessPage.isInformationDisplayed(user.getArrive());
-        bookTicketSuccessPage.isInformationDisplayed(user.getSeatType());
-        bookTicketSuccessPage.isInformationDisplayed(user.getAmountTicket());
-        bookTicketSuccessPage.isInformationDisplayed(user.getDepartDate());
+        bookTicketSuccessPage.isInformationDisplayed(user);
     }
 
     @Test(dataProvider = "chapter10Testcase13", dataProviderClass = TestDataProvider.class, description = "User can book many tickets at a time")
-    public void Testcase13(User user, int date, String expectedMessage){
+    public void Testcase13(User user, String expectedMessage){
         basePage.navigateToRailway();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
         homePage.clickTab(RailwayTab.BOOKTICKET);
-        bookTicketPage.selectDepartdate(date);
+        bookTicketPage.selectDepartdate(user.getDate());
         bookTicketPage.select(BookTicket.DEPARTSTATION, user.getDepart());
-        bookTicketPage.select(BookTicket.ARRIVESTATION, user.getArrive());
         bookTicketPage.select(BookTicket.AMOUNTTICKET, user.getAmountTicket());
         bookTicketPage.select(BookTicket.SEATTYPE, user.getSeatType());
+        bookTicketPage.select(BookTicket.ARRIVESTATION, user.getArrive());
         bookTicketPage.bookTicketButton();
         bookTicketSuccessPage.isSuccessMessageDisplayed(expectedMessage);
-        bookTicketSuccessPage.isInformationDisplayed(user.getDepart());
-        bookTicketSuccessPage.isInformationDisplayed(user.getArrive());
-        bookTicketSuccessPage.isInformationDisplayed(user.getSeatType());
-        bookTicketSuccessPage.isInformationDisplayed(user.getAmountTicket());
-        bookTicketSuccessPage.isInformationDisplayed(user.getDepartDate());
+        bookTicketSuccessPage.isInformationDisplayed(user);
     }
 
     @Test(dataProvider = "chapter10Testcase14", dataProviderClass = TestDataProvider.class, description = "User can check price of ticket from Timetable")
@@ -77,22 +69,19 @@ public class BookTicketTest extends BaseTest {
     }
 
     @Test(dataProvider = "chapter10Testcase15", dataProviderClass = TestDataProvider.class, description = "User can book ticket from Timetable")
-    public void Testcase15(User user, int date, String expectedMessage){
+    public void Testcase15(User user, String expectedMessage){
         basePage.navigateToRailway();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
         homePage.clickTab(RailwayTab.TIMETABLE);
         timetablePage.bookTicket(user);
-        bookTicketPage.selectDepartdate(date);
+        bookTicketPage.selectDepartdate(user.getDate());
         bookTicketPage.select(BookTicket.AMOUNTTICKET, user.getAmountTicket());
         bookTicketPage.select(BookTicket.SEATTYPE, user.getSeatType());
         bookTicketPage.bookTicketButton();
         bookTicketSuccessPage.isSuccessMessageDisplayed(expectedMessage);
-        bookTicketSuccessPage.isInformationDisplayed(user.getDepart());
-        bookTicketSuccessPage.isInformationDisplayed(user.getArrive());
-        bookTicketSuccessPage.isInformationDisplayed(user.getSeatType());
-        bookTicketSuccessPage.isInformationDisplayed(user.getAmountTicket());
-        bookTicketSuccessPage.isInformationDisplayed(user.getDepartDate());
+        bookTicketSuccessPage.isInformationDisplayed(user);
+
     }
 
 }

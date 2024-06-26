@@ -5,10 +5,13 @@ import org.railway.enums.BookTicket;
 import org.railway.enums.RailwayTab;
 import org.railway.models.User;
 import org.railway.pages.*;
+import org.railway.utils.report.listeners.ReportListener;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import railway.*;
 
+@Listeners(ReportListener.class)
 public class BookTicketFromTimeTableTest extends BaseTest {
 
     BasePage basePage = new BasePage();
@@ -31,11 +34,7 @@ public class BookTicketFromTimeTableTest extends BaseTest {
         bookTicketPage.selectDepartdate(date);
         bookTicketPage.select(BookTicket.AMOUNTTICKET, user.getAmountTicket());
         bookTicketPage.bookTicketButton();
-        Assert.assertTrue(bookTicketSuccessPage.isSuccessMessageDisplayed(expectedMessage), "Success message is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getDepart()), "Depart information is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getArrive()), "Arrive information is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getSeatType()), "Seat type information is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getDepartDate()), "Depart date information is not displayed correctly");
-        Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user.getAmountTicket()), "Amount ticket information is not displayed correctly");
+        bookTicketSuccessPage.isSuccessMessageDisplayed(expectedMessage);
+        bookTicketSuccessPage.isInformationDisplayed(user);
     }
 }

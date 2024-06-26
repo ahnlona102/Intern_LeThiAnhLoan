@@ -6,9 +6,12 @@ import org.railway.enums.ConfirmEmail;
 import org.railway.enums.RailwayTab;
 import org.railway.models.User;
 import org.railway.pages.*;
+import org.railway.utils.report.listeners.ReportListener;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import railway.*;
 
+@Listeners(ReportListener.class)
 public class BookTicketTest extends BaseTest {
 
         BasePage basePage = new BasePage();
@@ -28,7 +31,8 @@ public class BookTicketTest extends BaseTest {
             registerPage.registerAccount(user);
             basePage.switchToEmail();
             basePage.refreshPage();
-            mailPage.confirmEmail(ConfirmEmail.CONFIRM);
+            mailPage.checkConfirmMess(ConfirmEmail.CONFIRM);
+            mailPage.clickConfirmLink();
             basePage.switchToNewTab();
             basePage.navigateToRailway();
             homePage.clickTab(RailwayTab.LOGIN);
