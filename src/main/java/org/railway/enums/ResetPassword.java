@@ -1,9 +1,12 @@
 package org.railway.enums;
 
 public enum ResetPassword {
-    NEWPASS("New Password"),
-    CONFIRMNEWPASS("Confirm new password"),
+    NEWPASS("password"),
+    IDNEWPASS("newPassword"),
+    CONFIRMNEWPASS("password"),
+    IDCONFIRMNEWPASS("confirmPassword"),
     RESETBUTTON("Reset password");
+
 
     private String value;
 

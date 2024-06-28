@@ -2,7 +2,7 @@
   "host": "192.168.60.22",
   "port": 4444,
   "role": "hub",
-  "maxSession": 10,
+  "maxSession": 5,
   "timeout": 30000,
   "newSessionWaitTimeout": -1,
   "servlets": [],

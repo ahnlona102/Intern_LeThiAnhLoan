@@ -19,20 +19,24 @@ public class Driver {
     public static WebDriverWait wait;
     private static final String HUB_URL = "http://192.168.60.22:4444";
     public static void setupDriver(String browser) throws MalformedURLException {
-        if (browser.equals("chrome")) {
-            capabilities.setPlatform(Platform.ANY);
-            capabilities.setBrowserName("chrome");
+        if (browser.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+//            capabilities.setPlatform(Platform.ANY);
+//            capabilities.setBrowserName("chrome");
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.merge(capabilities);
-            driver = new RemoteWebDriver(new URL(HUB_URL), capabilities);
-        } else if (browser.equals("firefox")) {
-            capabilities.setPlatform(Platform.ANY);
-            capabilities.setBrowserName("firefox");
+            chromeOptions.setCapability("browserName","chrome");
+            driver = new RemoteWebDriver(new URL(HUB_URL), chromeOptions);
+//            chromeOptions.merge(capabilities);
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+//            capabilities.setPlatform(Platform.ANY);
+//            capabilities.setBrowserName("firefox");
             FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.merge(capabilities);
-            driver = new RemoteWebDriver(new URL(HUB_URL), capabilities);
+            firefoxOptions.setCapability("browserName","firefox");
+            driver = new RemoteWebDriver(new URL(HUB_URL), firefoxOptions);
+//            firefoxOptions.merge(capabilities);
         }
+//        driver = new RemoteWebDriver(new URL(HUB_URL), capabilities);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
-
 }

@@ -9,9 +9,9 @@ import org.testng.annotations.Parameters;
 import java.net.MalformedURLException;
 import java.time.Duration;
 
+@Parameters("browser")
 public class BaseTest {
 
-    @Parameters({"browser"})
     @BeforeMethod
     public void setUp() throws MalformedURLException {
         String browser = System.getProperty("browser", ConfigLoader.getProperty("browser"));

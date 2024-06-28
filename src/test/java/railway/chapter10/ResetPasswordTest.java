@@ -20,6 +20,7 @@ public class ResetPasswordTest extends BaseTest {
     @Test(dataProvider = "chapter10Testcase10", dataProviderClass = TestDataProvider.class, description = "Reset password shows error if the new password is same as current")
     public void Testcase10(User user,  String errorMessage){
         basePage.navigateToRailway();
+        basePage.refreshPage();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.clickHyperlinkByName(NameHyperlink.FORGOTPASSWORD);
         forgotPasswordPage.submitResetPasswordForm(user);
@@ -30,8 +31,8 @@ public class ResetPasswordTest extends BaseTest {
         //String resetToken = mailPage.getResetPasswordToken();
         mailPage.clickConfirmLink();
         resetPasswordPage.isTitleFormDisplayed(Title.PASSWORD_CHANGE_FORM);
-        resetPasswordPage.enterField(ResetPassword.NEWPASS, user.getPassword());
-        resetPasswordPage.enterField(ResetPassword.CONFIRMNEWPASS, user.getConfirmPassword());
+        resetPasswordPage.enterField(ResetPassword.NEWPASS, ResetPassword.IDCONFIRMNEWPASS, user.getPassword());
+        resetPasswordPage.enterField(ResetPassword.CONFIRMNEWPASS, ResetPassword.IDCONFIRMNEWPASS, user.getConfirmPassword());
         resetPasswordPage.clickButton(ResetPassword.RESETBUTTON);
         //Assert.assertEquals(resetPasswordPage.getResetToken(), resetToken );
         Assert.assertEquals(resetPasswordPage.getMessageNextConfirmPassword(), errorMessage);
@@ -40,6 +41,7 @@ public class ResetPasswordTest extends BaseTest {
     @Test(dataProvider = "chapter10Testcase11", dataProviderClass = TestDataProvider.class, description = "Reset password shows error if the new password and confirm password doesn't match")
     public void Testcase11(User user, String errorMess, String errorMessage){
         basePage.navigateToRailway();
+        basePage.refreshPage();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.clickHyperlinkByName(NameHyperlink.FORGOTPASSWORD);
         forgotPasswordPage.submitResetPasswordForm(user);
@@ -51,8 +53,8 @@ public class ResetPasswordTest extends BaseTest {
         mailPage.clickConfirmLink();
         resetPasswordPage.isTitleFormDisplayed(Title.PASSWORD_CHANGE_FORM);
         resetPasswordPage.isTitleFormDisplayed(Title.PASSWORD_CHANGE_FORM);
-        resetPasswordPage.enterField(ResetPassword.NEWPASS, user.getPassword());
-        resetPasswordPage.enterField(ResetPassword.CONFIRMNEWPASS, user.getConfirmPassword());
+        resetPasswordPage.enterField(ResetPassword.NEWPASS, ResetPassword.IDNEWPASS, user.getPassword());
+        resetPasswordPage.enterField(ResetPassword.CONFIRMNEWPASS, ResetPassword.IDCONFIRMNEWPASS, user.getConfirmPassword());
         resetPasswordPage.clickButton(ResetPassword.RESETBUTTON);
         //Assert.assertEquals(resetPasswordPage.getResetToken(), resetToken);
         Assert.assertEquals(resetPasswordPage.getMessageAboveForm(), errorMess);

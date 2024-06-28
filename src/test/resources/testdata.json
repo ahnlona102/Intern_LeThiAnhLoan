@@ -162,6 +162,27 @@
           "seatType": "Soft seat with air conditioner",
           "amountTicket": "1"
         }
+      },
+      "testE2E": {
+        "username": "ahihi123",
+        "domain": "grr.la",
+        "password": "123456789",
+        "confirmPassword": "123456789",
+        "passport": "2984345829",
+        "depart": "Đà Nẵng",
+        "arrive": "Sài Gòn",
+        "departDate": "7/3/2024",
+        "seatType": "Soft seat",
+        "amountTicket": "2",
+        "message": "Registration Confirmed! You can now log in to the site.",
+        "expectedMessage":"Ticket price from Đà Nẵng to Sài Gòn",
+        "expecMessage": "Ticket booked successfully!",
+        "HS": 310000,
+        "SS": 335000,
+        "SSC": 360000,
+        "HB": 410000,
+        "SB": 460000,
+        "SBC": 510000
       }
     }
   ]

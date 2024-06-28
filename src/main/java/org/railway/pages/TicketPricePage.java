@@ -21,7 +21,7 @@ public class TicketPricePage extends BasePage{
     }
 
     public Integer getPriceOfSeatType(SeatType type) {
-        By priceOfSeatLocator = By.xpath(String.format(priceOfSeatType, type));
+        By priceOfSeatLocator = By.xpath(String.format(priceOfSeatType, type.getValue()));
         String price = Action.getText(priceOfSeatLocator);
         return Integer.parseInt(price);
     }

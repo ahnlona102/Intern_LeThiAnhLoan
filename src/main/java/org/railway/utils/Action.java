@@ -61,6 +61,7 @@ public class Action {
     public static void enter(By element, String text) {
         WebElement webElement = Driver.driver.findElement(element);
         scroll(element);
+        webElement.clear();
         webElement.sendKeys(text);
     }
 

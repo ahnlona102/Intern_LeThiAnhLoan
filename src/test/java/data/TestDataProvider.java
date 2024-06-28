@@ -14,6 +14,45 @@ import java.util.List;
 
 public class TestDataProvider {
 
+    @DataProvider(name = "TestE2E")
+    public Object[][] getTestE2E() {
+        JSONArray testData = loadTestData();
+        List<Object[]> testDataList = new ArrayList<>();
+
+        for (int i = 0; i < testData.length(); i++) {
+            JSONObject testDataItem = testData.getJSONObject(i);
+            if (testDataItem.has("testE2E")) {
+                JSONObject data = testDataItem.getJSONObject("testE2E");
+                User user = new User();
+                user.setUsername(data.optString("username", ""));
+                user.setDomain(data.optString("domain", ""));
+                user.setPassword(data.optString("password", ""));
+                user.setConfirmPassword(data.getString("confirmPassword"));
+                user.setPassport(data.optString("passport", ""));
+                user.setDepart(data.optString("depart", ""));
+                user.setArrive(data.optString("arrive", ""));
+                user.setSeatType(data.optString("seatType", ""));
+                user.setAmountTicket(data.optString("amountTicket", ""));
+                user.setDepartDate(data.optString("departDate", ""));
+                user.setEmail(generateEmail(data.optString("username", ""), data.optString("domain", "")));
+                String expectedMessage = data.optString("expectedMessage", "");
+                String expecMessage = data.optString("expecMessage", "");
+                String message = data.optString("message", "");
+                String title = data.optString("title", "");
+                int HS = data.optInt("HS");
+                int SS = data.optInt("SS");
+                int SSC = data.optInt("SSC");
+                int SB = data.optInt("SB");
+                int HB = data.optInt("HB");
+                int SBC = data.optInt("SBC");
+                testDataList.add(new Object[]{user, message, expectedMessage, HS, SS, SSC, HB, SB, SBC, expecMessage});
+            }
+        }
+
+        return convertToObjectArray(testDataList);
+    }
+
+
     @DataProvider(name = "bookTicketChapter3")
     public Object[][] getBookTicketChapter3() {
         return getTestData("testChapter3");
