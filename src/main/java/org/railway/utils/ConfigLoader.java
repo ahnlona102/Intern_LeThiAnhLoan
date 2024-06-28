@@ -11,7 +11,7 @@ public class ConfigLoader {
         loadProperties();
     }
 
-    private static void loadProperties() {
+    public static void loadProperties() {
         properties = new Properties();
         try (InputStream input = ConfigLoader.class.getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {

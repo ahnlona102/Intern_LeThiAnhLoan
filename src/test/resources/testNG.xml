@@ -1,8 +1,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="chapter10" >
-    <test name="LoginTest">
+<suite name="railway - chrome">
+    <parameter name="browser" value="firefox"></parameter>
+    <listeners>
+        <listener class-name="org.railway.utils.report.listeners.ReportListener"></listener>
+    </listeners>
+    <test name="bookticket">
         <classes>
-            <class name="railway.chapter10.CancelTicketTest"></class>
+            <class name="railway.chapter3.BookTicketTest">
+            </class>
+            <class name="railway.chapter5_8.BookTicketFromTimeTableTest">
+            </class>
         </classes>
     </test>
 </suite>

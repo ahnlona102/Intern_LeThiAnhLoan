@@ -193,10 +193,9 @@ public class TestDataProvider {
         } else {
             user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
         }
-        String title = testCaseData.optString("titleForm", "");
         String errorMessage = testCaseData.optString("errorMessage", "");
 
-        return new Object[][]{{user, title, errorMessage}};
+        return new Object[][]{{user, errorMessage}};
     }
 
     @DataProvider(name = "chapter10Testcase11")
@@ -219,16 +218,84 @@ public class TestDataProvider {
         } else {
             user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
         }
-        String title = testCaseData.optString("titleForm", "");
         String errorMess = testCaseData.optString("errorMess");
         String errorMessage = testCaseData.optString("errorMessage", "");
 
-        return new Object[][]{{user, title, errorMess, errorMessage}};
+        return new Object[][]{{user, errorMess, errorMessage}};
     }
     @DataProvider(name = "chapter10Testcase14")
     public Object[][] getLoginChapter10Testcase14() {
         String chapterKey = "testChapter10";
         String testCaseKey = "testCase14";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        user.setPassword(testCaseData.optString("confirmPassword", ""));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        user.setDepart(testCaseData.optString("depart", ""));
+        user.setArrive(testCaseData.optString("arrive", ""));
+        user.setSeatType(testCaseData.optString("seatType", ""));
+        user.setAmountTicket(testCaseData.optString("amountTicket", ""));
+        user.setDepartDate(testCaseData.optString("departDate", ""));
+        String title = testCaseData.optString("title", "");
+        String expectedMessage = testCaseData.optString("expectedMessage","");
+
+        int HS = testCaseData.optInt("HS");
+        int SS = testCaseData.optInt("SS");
+        int SSC = testCaseData.optInt("SSC");
+        int SB = testCaseData.optInt("SB");
+        int HB = testCaseData.optInt("HB");
+        int SBC = testCaseData.optInt("SBC");
+
+        return new Object[][]{{user,title, expectedMessage, HS, SS, SSC, SB, HB, SBC}};
+    }
+    @DataProvider(name = "chapter10Testcase12")
+    public Object[][] getLoginChapter10Testcase12() {
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase12";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        user.setPassword(testCaseData.optString("confirmPassword", ""));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        user.setDepart(testCaseData.optString("depart", ""));
+        user.setArrive(testCaseData.optString("arrive", ""));
+        user.setSeatType(testCaseData.optString("seatType", ""));
+        user.setAmountTicket(testCaseData.optString("amountTicket", ""));
+        if (testCaseData.has("date")) {
+            int date = testCaseData.optInt("date");
+            user.setDate(date);
+        } else {
+            user.setDepartDate(testCaseData.optString("departDate", ""));
+        }
+        String expectedMessage = testCaseData.optString("expectedMessage");
+
+        return new Object[][]{{user, expectedMessage}};
+    }
+    @DataProvider(name = "chapter10Testcase13")
+    public Object[][] getLoginChapter10Testcase13() {
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase13";
 
         JSONArray testData = loadTestData();
         JSONObject chapterData = getChapterData(testData, chapterKey);
@@ -247,27 +314,50 @@ public class TestDataProvider {
         user.setArrive(testCaseData.optString("arrive", ""));
         user.setSeatType(testCaseData.optString("seatType", ""));
         user.setAmountTicket(testCaseData.optString("amountTicket", ""));
-        user.setDepartDate(testCaseData.optString("departDate", ""));
 
-        String HS = testCaseData.optString("HS", "");
-        String SS = testCaseData.optString("SS");
-        String SB = testCaseData.optString("SB", "");
-        String SBC = testCaseData.optString("SB", "");
+        if (testCaseData.has("date")) {
+            int date = testCaseData.optInt("date");
+            user.setDate(date);
+        } else {
+            user.setDepartDate(testCaseData.optString("departDate", ""));
+        }
+        String expectedMessage = testCaseData.optString("expectedMessage");
 
-        return new Object[][]{{user,HS, SS, SB, SBC}};
-    }
-    @DataProvider(name = "chapter10Testcase12")
-    public Object[][] getLoginChapter10Testcase12() {
-        return  getTestData("testChapter10", "testCase12");
-    }
-    @DataProvider(name = "chapter10Testcase13")
-    public Object[][] getLoginChapter10Testcase13() {
-        return getTestData("testChapter10","testCase13");
+        return new Object[][]{{user, expectedMessage}};
     }
 
     @DataProvider(name = "chapter10Testcase15")
     public Object[][] getLoginChapter10Testcase15() {
-        return getTestData("testChapter10","testCase15");
+        String chapterKey = "testChapter10";
+        String testCaseKey = "testCase15";
+
+        JSONArray testData = loadTestData();
+        JSONObject chapterData = getChapterData(testData, chapterKey);
+        JSONObject testCaseData = getTestCaseData(chapterData, testCaseKey);
+
+        User user = new User();
+        user.setUsername(testCaseData.optString("username", ""));
+        user.setDomain(testCaseData.optString("domain", ""));
+        user.setPassword(testCaseData.optString("password", ""));
+        if (testCaseData.has("email")) {
+            user.setEmail(testCaseData.optString("email", ""));
+        } else {
+            user.setEmail(generateEmail(testCaseData.optString("username", ""), testCaseData.optString("domain", "")));
+        }
+        user.setDepart(testCaseData.optString("depart", ""));
+        user.setArrive(testCaseData.optString("arrive", ""));
+        user.setSeatType(testCaseData.optString("seatType", ""));
+        user.setAmountTicket(testCaseData.optString("amountTicket", ""));
+
+        if (testCaseData.has("date")) {
+            int date = testCaseData.optInt("date");
+            user.setDate(date);
+        } else {
+            user.setDepartDate(testCaseData.optString("departDate", ""));
+        }
+        String expectedMessage = testCaseData.optString("expectedMessage");
+
+        return new Object[][]{{user, expectedMessage}};
     }
 
     @DataProvider(name = "chapter10Testcase16")
@@ -364,7 +454,7 @@ public class TestDataProvider {
                 user.setUsername(data.optString("username", ""));
                 user.setDomain(data.optString("domain", ""));
                 user.setPassword(data.optString("password", ""));
-                user.setConfirmPassword(data.optString("confirmpassword", ""));
+                user.setConfirmPassword(data.optString("confirmPassword", ""));
                 user.setPassport(data.optString("passport", ""));
                 user.setDepart(data.optString("depart", ""));
                 user.setArrive(data.optString("arrive", ""));

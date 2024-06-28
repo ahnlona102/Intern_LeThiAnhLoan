@@ -11,11 +11,11 @@ public class TimetablePage extends BasePage{
 
     public void checkPrice(User user) {
         By check = By.xpath(String.format(checkPricePageLocator, user.getDepart(), user.getArrive()));
-        Action.clickIfClickable(check);
+        Action.click(check);
     }
 
     public void bookTicket(User user) {
         By book = By.xpath(String.format(bookTicketPageLocator, user.getDepart(), user.getArrive()));
-        Action.clickIfClickable(book);
+        Action.click(book);
     }
 }

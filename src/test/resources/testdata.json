@@ -2,24 +2,24 @@
   "testData": [
     {
       "testChapter3": {
-        "username": "anhloan111111",
+        "username": "hahaha16",
         "domain": "grr.la",
         "password": "123456789",
-        "confirmpassword": "123456789",
+        "confirmPassword": "123456789",
         "passport": "2984345829",
         "arrive": "Phan Thiết",
         "seatType": "Soft seat",
         "amountTicket": "2"
       },
       "testChapter5_8": {
-        "username": "anhloan189",
+        "username": "hahaha13",
         "domain": "grr.la",
         "password": "123456789",
         "depart": "Sài Gòn",
         "arrive": "Đà Nẵng",
         "seatType": "Soft seat",
         "amountTicket": "2",
-        "departDate": "6/26/2024",
+        "departDate": "7/3/2024",
         "expectedMessage": "Ticket booked successfully!",
         "date": 7
       },
@@ -66,7 +66,7 @@
           "errorMessage": "This email address is already in use."
         },
         "testCase8": {
-          "username": "anhloan5555",
+          "username": "anhloan333",
           "domain": "grr.la",
           "password": "",
           "confirmPassword": "123456789",
@@ -76,7 +76,7 @@
           "passportFieldErr": "Invalid ID length."
         },
         "testCase9": {
-          "username": "anhloan91111",
+          "username": "hahaha9",
           "domain": "grr.la",
           "password": "123456789",
           "confirmPassword": "123456789",
@@ -85,7 +85,7 @@
           "successMessage": "Registration Confirmed! You can now log in to the site."
         },
         "testCase10": {
-          "username": "anhloan189",
+          "username": "hahaha2",
           "domain": "grr.la",
           "password": "123456789",
           "confirmPassword": "123456789",
@@ -93,7 +93,7 @@
           "errorMessage": "The new password cannot be the same with the current password."
         },
         "testCase11": {
-          "username": "anhloan189",
+          "username": "hahaha3",
           "domain": "grr.la",
           "password": "123456789",
           "confirmPassword": "12345678",
@@ -102,37 +102,36 @@
           "errorMessage": "The password confirmation did not match the new password."
         },
         "testCase12": {
-          "username": "anhloan111111",
+          "username": "hahaha3",
           "domain": "grr.la",
           "password": "123456789",
-          "confirmpassword": "123456789",
+          "confirmPassword": "123456789",
           "date": "12",
           "depart": "Nha Trang",
           "arrive": "Huế",
           "seatType": "Soft bed with air conditioner",
           "amountTicket": "1",
-          "departDate": "6/26/2024",
+          "departDate": "7/6/2024",
           "expectedMessage": "Ticket booked successfully!"
         },
         "testCase13": {
-          "username": "anhloan1891",
+          "username": "hahaha6",
           "domain": "grr.la",
           "password": "123456789",
-          "confirmpassword": "123456789",
+          "confirmPassword": "123456789",
           "date": "25",
           "depart": "Nha Trang",
           "arrive": "Sài Gòn",
           "seatType": "Soft seat with air conditioner",
           "amountTicket": "5",
-          "departDate": "7/2/2024",
+          "departDate": "7/19/2024",
           "expectedMessage": "Ticket booked successfully!"
         },
         "testCase14": {
-          "username": "anhloan189",
+          "username": "hahaha3",
           "domain": "grr.la",
           "password": "123456789",
           "title": "Ticket Price",
-          "date": "25",
           "depart": "Đà Nẵng",
           "arrive": "Sài Gòn",
           "expectedMessage": "Ticket price from Đà Nẵng to Sài Gòn",
@@ -144,19 +143,18 @@
           "SBC": 510000
         },
         "testCase15": {
-          "username": "anhloan1891",
-          "domain": "grr.la",
+          "email": "hahaha6@grr.la",
           "password": "123456789",
           "depart": "Quảng Ngãi",
           "arrive": "Huế",
           "date": 10,
           "seatType": "Soft seat with air conditioner",
           "amountTicket": "5",
-          "departDate": "6/30/2024",
+          "departDate": "7/4/2024",
           "expectedMessage": "Ticket booked successfully!"
         },
         "testCase16": {
-          "email": "abc123@sharklasers.com",
+          "email": "anhloan189@grr.la",
           "password": "123456789",
           "depart": "Nha Trang",
           "arrive": "Huế",

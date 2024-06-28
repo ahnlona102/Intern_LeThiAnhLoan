@@ -12,10 +12,19 @@ public class User {
     private String email;
     private String departDate;
     private String depart;
+    private int date;
 
 
     public User(){
 
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
     }
 
     public String getUsername() {
