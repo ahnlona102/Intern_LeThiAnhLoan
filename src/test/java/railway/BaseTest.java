@@ -1,28 +1,31 @@
 package railway;
 
-import org.railway.utils.ConfigLoader;
-import org.railway.utils.Driver;
+import org.railway.pages.BasePage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.railway.utils.DriverManager;
 
 import java.net.MalformedURLException;
-import java.time.Duration;
 
-@Parameters("browser")
-public class BaseTest {
+public class BaseTest extends BasePage {
 
+    @Parameters({"browser", "type"})
     @BeforeMethod
-    public void setUp() throws MalformedURLException {
-        String browser = System.getProperty("browser", ConfigLoader.getProperty("browser"));
-        Driver.setupDriver(browser);
-        Driver.driver.manage().window().maximize();
-        Driver.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        Driver.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+    public void setUp(@Optional("chrome") String browser, @Optional("local") String type) throws MalformedURLException {
+        if (type.equalsIgnoreCase("remote")) {
+            DriverManager.initRemoteDriver(browser);
+            DriverManager.getDriver().manage().window().maximize();
+        } else {
+            DriverManager.initLocalDriver(browser);
+            DriverManager.getDriver().manage().window().maximize();
+        }
     }
+
 
     @AfterMethod
     public void tearDown() {
-        Driver.driver.quit();
+        DriverManager.quitDriver();
     }
 }

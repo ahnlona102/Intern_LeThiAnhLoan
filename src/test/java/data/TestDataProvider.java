@@ -3,6 +3,7 @@ package data;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+
 import org.railway.models.User;
 import org.testng.annotations.DataProvider;
 
@@ -88,17 +89,17 @@ public class TestDataProvider {
         return convertToObjectArray(testDataList);
     }
 
-    @DataProvider(name = "chapter10Testcase1")
+    @DataProvider(name = "chapter10Testcase1", parallel = true)
     public Object[][] getLoginChapter10Testcase1() {
         return getTestData("testChapter10", "testCase1");
     }
 
-    @DataProvider(name = "chapter10Testcase2")
+    @DataProvider(name = "chapter10Testcase2", parallel = true)
     public Object[][] getLoginChapter10Testcase2() {
         return getTestData("testChapter10", "testCase2");
     }
 
-    @DataProvider(name = "chapter10Testcase3")
+    @DataProvider(name = "chapter10Testcase3", parallel = true)
     public Object[][] getLoginChapter10Testcase3() {
         return getTestData("testChapter10", "testCase3");
     }

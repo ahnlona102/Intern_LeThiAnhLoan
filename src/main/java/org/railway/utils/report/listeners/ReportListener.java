@@ -1,9 +1,7 @@
 package org.railway.utils.report.listeners;
 
 import com.aventstack.extentreports.Status;
-import org.openqa.selenium.WebDriver;
 import org.railway.utils.ConfigLoader;
-import org.railway.utils.Driver;
 import org.railway.utils.report.extentreports.ExtentTestManager;
 import org.railway.utils.report.logs.Log;
 import org.testng.ITestContext;

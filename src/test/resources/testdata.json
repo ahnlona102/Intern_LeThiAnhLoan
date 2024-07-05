@@ -158,13 +158,13 @@
           "password": "123456789",
           "depart": "Nha Trang",
           "arrive": "Huế",
-          "departDate": "6/30/2024",
+          "departDate": "7/3/2024",
           "seatType": "Soft seat with air conditioner",
           "amountTicket": "1"
         }
       },
       "testE2E": {
-        "username": "ahihi123",
+        "username": "ahlonale111111",
         "domain": "grr.la",
         "password": "123456789",
         "confirmPassword": "123456789",

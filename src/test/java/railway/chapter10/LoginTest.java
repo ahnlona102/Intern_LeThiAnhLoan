@@ -6,19 +6,20 @@ import org.railway.models.User;
 import org.railway.pages.BasePage;
 import org.railway.pages.HomePage;
 import org.railway.pages.LoginPage;
-import org.railway.pages.RegisterPage;
 import org.testng.annotations.Test;
 import railway.BaseTest;
 
 public class LoginTest extends BaseTest {
     BasePage basePage = new BasePage();
     HomePage homePage = new HomePage();
-    RegisterPage registerPage = new RegisterPage();
     LoginPage loginPage = new LoginPage();
+
 
     @Test(dataProvider = "chapter10Testcase1", dataProviderClass = TestDataProvider.class, description = "User can login to Railway with valid Username and password")
     public void Testcase1(User user, String expectedMessage){
+        System.out.println("Test 1 - " + Thread.currentThread().getName());
         basePage.navigateToRailway();
+        basePage.refreshPage();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
         homePage.isWelcomeMessageDisplayed(expectedMessage);
@@ -26,7 +27,9 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "chapter10Testcase2", dataProviderClass = TestDataProvider.class, description = "User cannot login with blank Username textbox")
     public void Testcase2(User user, String errorMessage){
+        System.out.println("Test 2 - " + Thread.currentThread().getName());
         basePage.navigateToRailway();
+        basePage.refreshPage();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
         loginPage.isLoginErrorMessageDisplayed(errorMessage);
@@ -34,6 +37,7 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "chapter10Testcase3", dataProviderClass = TestDataProvider.class, description = "User cannot login with blank Password textbox")
     public void Testcase3(User user, String errorMessage){
+        System.out.println("Test 3 - " + Thread.currentThread().getName());
         basePage.navigateToRailway();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
@@ -42,7 +46,9 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "chapter10Testcase4", dataProviderClass = TestDataProvider.class, description = "System shows message when user enters wrong password many times")
     public void Testcase4(User user, String errorMessage, String attempErrorMessage){
+        System.out.println("Test 4 - " + Thread.currentThread().getName());
         basePage.navigateToRailway();
+        basePage.refreshPage();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
         loginPage.isLoginErrorMessageDisplayed(errorMessage);
@@ -52,7 +58,9 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "chapter10Testcase5", dataProviderClass = TestDataProvider.class, description = "User can't login with an account hasn't been activated")
     public void Testcase5(User user, String errorMessage){
+        System.out.println("Test 5 - " + Thread.currentThread().getName());
         basePage.navigateToRailway();
+        basePage.refreshPage();
         homePage.clickTab(RailwayTab.LOGIN);
         loginPage.login(user);
         loginPage.isLoginErrorMessageDisplayed(errorMessage);

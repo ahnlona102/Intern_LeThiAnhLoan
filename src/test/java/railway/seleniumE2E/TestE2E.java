@@ -66,6 +66,10 @@ public class TestE2E extends BaseTest {
         bookTicketPage.bookTicketButton();
         Assert.assertTrue(bookTicketSuccessPage.isSuccessMessageDisplayed(expecMessage), "Message is not displayed ");
         Assert.assertTrue(bookTicketSuccessPage.isInformationDisplayed(user), "Information is incorrectly ");
+        bookTicketSuccessPage.clickTab(RailwayTab.MYTICKET);
+        myTicketPage.cancelTicket(user);
+        myTicketPage.acceptCancelTicket();
+        myTicketPage.isCancelledTicketDisplayed(user);
         bookTicketSuccessPage.clickTab(RailwayTab.LOGOUT);
         homePage.isTabDisplayed(RailwayTab.HOME);
         homePage.doesTabExist(RailwayTab.LOGOUT);

@@ -4,8 +4,8 @@ import org.openqa.selenium.*;
 import org.railway.enums.NameHyperlink;
 import org.railway.utils.Action;
 import org.railway.utils.ConfigLoader;
-import org.railway.utils.Driver;
 import org.railway.enums.RailwayTab;
+import org.railway.utils.DriverManager;
 
 public class BasePage {
 
@@ -17,30 +17,30 @@ public class BasePage {
 
     public static void navigateToRailway() {
         String railwayUrl = ConfigLoader.getProperty("railway.url");
-        Driver.driver.get(railwayUrl);
-        railway = Driver.driver.getWindowHandle();
+        DriverManager.getDriver().get(railwayUrl);
+        railway = DriverManager.getDriver().getWindowHandle();
     }
 
     public static void switchToRailway() {
-        Driver.driver.switchTo().window(railway);
+        DriverManager.getDriver().switchTo().window(railway);
     }
 
     public static void navigateToMailPage() {
         String mailUrl = ConfigLoader.getProperty("mail.url");
-        Driver.driver.get(mailUrl);
-        mail = Driver.driver.getWindowHandle();
+        DriverManager.getDriver().get(mailUrl);
+        mail = DriverManager.getDriver().getWindowHandle();
     }
 
     public static void switchToEmail() {
-        Driver.driver.switchTo().window(mail);
+        DriverManager.getDriver().switchTo().window(mail);
     }
 
     public static void refreshPage() {
-        Driver.driver.navigate().refresh();
+        DriverManager.getDriver().navigate().refresh();
     }
 
     public static void switchToNewTab() {
-        Driver.driver.switchTo().newWindow(WindowType.TAB);
+        DriverManager.getDriver().switchTo().newWindow(WindowType.TAB);
     }
 
     public void clickTab(RailwayTab tabname) {
